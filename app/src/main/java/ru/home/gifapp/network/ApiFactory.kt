@@ -8,12 +8,11 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.home.gifapp.Config.GIF_SERVICE_ENDPOINT
+import ru.home.gifapp.Config.JSON_PARAM_NAME
+import ru.home.gifapp.Config.JSON_PARAM_VALUE
 
 object ApiFactory {
-
-    private const val GIF_SERVICE_ENDPOINT = "https://developerslife.ru"
-    private const val JSON_PARAM_NAME = "json"
-    private const val JSON_PARAM_VALUE = true
 
     val gifService: GifService by lazy { buildRetrofit().create(GifService::class.java) }
 
