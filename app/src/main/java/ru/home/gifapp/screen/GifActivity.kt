@@ -18,18 +18,19 @@ import ru.home.gifapp.R
 class GifActivity : AppCompatActivity(), GifViewModel.RefreshCallback,
     GifRequestListener.GifLoadingCallback {
 
-    private val gifViewModel by lazy {
-        ViewModelProvider(this, GifViewModel.GifViewModelFactory(this))
-            .get(GifViewModel::class.java)
-    }
+    private val gifViewModel by lazy { ViewModelProvider(this).get(GifViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gif)
 
+        gifViewModel.refreshCallback = this
+
         val gifLiveData: MutableLiveData<GifEntity?> = gifViewModel.getCurrentGif()
         gifLiveData.observe(this, {
-            it?.let { refreshInterface(it, gifViewModel.gifIndex != 0) }
+            it?.let {
+                refreshInterface(it, gifViewModel.gifIndex != 0)
+            }
         })
         if (gifLiveData.value == null) {
             gifViewModel.fetchGifs()
@@ -61,7 +62,8 @@ class GifActivity : AppCompatActivity(), GifViewModel.RefreshCallback,
 
     private fun loadGif(url: String) {
         showGifProgressBar()
-        Glide.with(this).asGif()
+        Glide.with(this)
+            .asGif()
             .load(url)
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
