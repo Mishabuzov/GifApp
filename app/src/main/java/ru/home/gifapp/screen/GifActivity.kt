@@ -65,7 +65,6 @@ class GifActivity : AppCompatActivity(), GifViewModel.RefreshCallback,
         Glide.with(this)
             .asGif()
             .load(url)
-            .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .listener(GifRequestListener(this))
             .centerCrop()
