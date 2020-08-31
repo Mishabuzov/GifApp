@@ -16,7 +16,7 @@ class GifRequestListener(private val gifLoadingCallback: GifLoadingCallback) :
         target: Target<GifDrawable>?,
         isFirstResource: Boolean
     ): Boolean {
-        Log.w("M_GifRequestListener", "Error Loading gif", e)
+        Log.w("M_GifRequestListener", "Error Loading gif\n${e?.message}", e)
         gifLoadingCallback.showNetworkErrorScreen()
         return false
     }
