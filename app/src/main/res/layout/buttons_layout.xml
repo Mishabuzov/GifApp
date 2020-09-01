@@ -14,7 +14,6 @@
         android:background="@android:color/white"
         android:elevation="@dimen/elevation_small"
         android:padding="@dimen/padding_medium"
-        android:onClick="onBackButtonClick"
         android:src="@drawable/navigate_back"
         android:visibility="invisible" />
 
@@ -23,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_small"
-        android:onClick="onNextButtonClick"
         android:background="@android:color/white"
         android:elevation="@dimen/elevation_small"
         android:padding="@dimen/padding_medium"
