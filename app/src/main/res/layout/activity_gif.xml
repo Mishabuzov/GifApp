@@ -6,21 +6,14 @@
     android:orientation="vertical"
     tools:context=".screen.GifActivity">
 
-    <include
-        android:id="@+id/network_error_layout"
-        layout="@layout/network_error_layout"
-        android:visibility="gone" />
-
-    <include
-        layout="@layout/gif_layout"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/categories_tabs"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3" />
-
-    <include
-        layout="@layout/buttons_layout"
+        android:layout_height="wrap_content"/>
+    
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/fragment_pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
