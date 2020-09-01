@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import ru.home.gifapp.Config.DEFAULT_CATEGORY
 import ru.home.gifapp.GifEntity
 import ru.home.gifapp.network.ApiFactory
 
@@ -18,6 +18,8 @@ class GifViewModel() : ViewModel() {
     private val loadedGifs: MutableSet<GifEntity> = mutableSetOf()
 
     lateinit var refreshCallback: RefreshCallback
+
+    lateinit var category: String
 
     fun getCurrentGif(): MutableLiveData<GifEntity?> = MutableLiveData(getGifByIndex(gifIndex))
 
@@ -42,7 +44,7 @@ class GifViewModel() : ViewModel() {
         if (loadedGifs.isEmpty()) null
         else loadedGifs.elementAt(index)
 
-    fun fetchGifs(category: String = DEFAULT_CATEGORY) =
+    fun fetchGifs(): Disposable =
         ApiFactory.gifService
             .fetchGifsByCategory(category, pageNum)
             .subscribeOn(Schedulers.io())
@@ -53,12 +55,12 @@ class GifViewModel() : ViewModel() {
                     refreshCallback.refreshInterface(getGifByIndex(gifIndex)!!, gifIndex != 0)
                     pageNum++
                 },
-                {
+                { error ->
                     refreshCallback.showNetworkErrorScreen()
                     Log.w(
                         "M_GifViewModel",
-                        "Error getting Gifs from category $category:\n${it.message}",
-                        it
+                        "Error getting Gifs from category $category:\n${error.message}",
+                        error
                     )
                 }
             )
