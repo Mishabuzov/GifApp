@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import ru.home.gifapp.GifEntity
 import ru.home.gifapp.network.ApiFactory
 
-class GifViewModel() : ViewModel() {
+class GifViewModel : ViewModel() {
 
     private var pageNum = 0
 
@@ -53,6 +53,7 @@ class GifViewModel() : ViewModel() {
                 {
                     loadedGifs.addAll(it.gifList)
                     refreshCallback.refreshInterface(getGifByIndex(gifIndex)!!, gifIndex != 0)
+                    refreshCallback.hideNetworkErrorScreen()
                     pageNum++
                 },
                 { error ->
@@ -67,7 +68,10 @@ class GifViewModel() : ViewModel() {
 
     interface RefreshCallback {
         fun refreshInterface(gifEntity: GifEntity, isNeedToShowBackButton: Boolean)
+
         fun showNetworkErrorScreen()
+
+        fun hideNetworkErrorScreen()
     }
 
 }
