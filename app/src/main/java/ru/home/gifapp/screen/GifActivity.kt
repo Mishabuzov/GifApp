@@ -8,7 +8,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_gif.*
 import ru.home.gifapp.R
-import java.util.*
 
 class GifActivity : AppCompatActivity() {
 
@@ -17,7 +16,7 @@ class GifActivity : AppCompatActivity() {
         setContentView(R.layout.activity_gif)
         fragment_pager.adapter = ViewPagerFragmentAdapter(this)
         TabLayoutMediator(categories_tabs, fragment_pager) { tab, position ->
-            tab.text = ViewPagerFragmentAdapter.categories[position].capitalize(Locale.getDefault())
+            tab.text = ViewPagerFragmentAdapter.categories[position]
         }.attach()
     }
 
