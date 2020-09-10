@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Developers Life</string>
-    <string name="network_error_message">Произошла ошибка при загрузке данных. Проверьте подключение к сети.</string>
+
     <string name="repeat_button_text">Повторить</string>
 
+    <!--    Error texts-->
+    <string name="network_error_text">Произошла ошибка при загрузке данных. Проверьте подключение к сети.</string>
+    <string name="gif_loading_error_text">Произошла ошибка при загрузке изображения. Проверьте подключение к сети.</string>
+
+    <!-- Content descriptions -->
     <string name="gif_image_view_description">Фрейм для показа .gif-анимаций</string>
     <string name="no_internet_image_view_description">Значок отсутствия сети</string>
+    <string name="error_gif_loading_description">Кнопка повторной загрузки .gif-файла</string>
 </resources>

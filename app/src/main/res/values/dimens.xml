@@ -5,6 +5,8 @@
 
     <dimen name="corner_radius_medium">15dip</dimen>
 
+    <dimen name="reload_gif_button_large">48dp</dimen>
+
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_medium">16dp</dimen>

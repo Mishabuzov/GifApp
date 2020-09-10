@@ -6,4 +6,5 @@
 
     <color name="textColorPrimary">#343434</color>
     <color name="slightlyBlack">#333232</color>
+    <color name="blackTransparent">#33000000</color>
 </resources>
