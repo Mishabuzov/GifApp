@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/slightlyBlack"
+    android:gravity="center">
+
+    <ImageButton
+        android:id="@+id/reload_gif_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="@dimen/reload_gif_button_large"
+        android:layout_height="@dimen/reload_gif_button_large"
+        android:layout_above="@id/error_text_message"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ic_refresh_white"
+        android:contentDescription="@string/error_gif_loading_description" />
+
+    <ProgressBar
+        android:id="@+id/gif_error_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/error_text_message"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@android:color/white"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/error_text_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:gravity="center"
+        android:text="@string/gif_loading_error_text"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

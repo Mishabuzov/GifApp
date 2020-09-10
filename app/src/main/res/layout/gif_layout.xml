@@ -12,12 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
-            android:id="@+id/gif_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
         <ImageView
             android:id="@+id/gif_image_view"
             android:layout_width="match_parent"
@@ -38,6 +32,11 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_large"
             tools:text="@string/app_name" />
+
+        <include
+            android:id="@+id/gif_error_layout"
+            layout="@layout/gif_error_layout"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
