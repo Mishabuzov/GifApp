@@ -52,6 +52,7 @@ class GifViewModel : ViewModel() {
             .subscribe(
                 {
                     loadedGifs.addAll(it.gifList)
+                    refreshCallback.hideReloadGifScreen()
                     refreshCallback.refreshInterface(getGifByIndex(gifIndex)!!, gifIndex != 0)
                     refreshCallback.hideNetworkErrorScreen()
                     pageNum++
@@ -72,6 +73,8 @@ class GifViewModel : ViewModel() {
         fun showNetworkErrorScreen()
 
         fun hideNetworkErrorScreen()
+
+        fun hideReloadGifScreen()
     }
 
 }
