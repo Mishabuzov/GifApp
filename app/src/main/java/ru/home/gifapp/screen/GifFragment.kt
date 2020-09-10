@@ -122,7 +122,7 @@ class GifFragment : Fragment(), GifViewModel.RefreshCallback,
         reload_gif_button.setOnClickListener {
             it.visibility = GONE
             gif_error_progress_bar.visibility = VISIBLE
-            makeActionWithSmallDelay { loadGif(url) }
+            makeActionWithSmallDelay { if (isAdded) loadGif(url) }
         }
     }
 
