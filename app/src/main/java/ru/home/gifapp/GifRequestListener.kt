@@ -17,24 +17,25 @@ class GifRequestListener(private val gifLoadingCallback: GifLoadingCallback) :
         isFirstResource: Boolean
     ): Boolean {
         Log.w("M_GifRequestListener", "Error Loading gif\n${e?.message}", e)
-        gifLoadingCallback.showNetworkErrorScreen()
+        gifLoadingCallback.showReloadGifScreen(model as String)
         return false
     }
 
     override fun onResourceReady(
-        resource: GifDrawable?,
+        resource: GifDrawable,
         model: Any?,
         target: Target<GifDrawable>?,
         dataSource: DataSource?,
         isFirstResource: Boolean
     ): Boolean {
-        gifLoadingCallback.hideGifProgressBar()
+        gifLoadingCallback.hideReloadGifScreen()
         return false
     }
 
     interface GifLoadingCallback {
-        fun hideGifProgressBar()
-        fun showNetworkErrorScreen()
+        fun hideReloadGifScreen()
+
+        fun showReloadGifScreen(url: String)
     }
 
 }
